@@ -16,9 +16,21 @@ Route::get('/', function () {
 });
 
 Route::get('/generos', function () {
-    return view('generos');
+    $genero = \App\Genero::all();
+
+    foreach ($genero as $generos) {
+        echo $generos->id . "<br>";
+        echo $generos->nome . "<br>";
+    }
 });
 
 Route::get('/series', function () {
-    return view('series');
+    $serie = \App\Serie::all();
+
+    foreach ($serie as $series) {
+        echo $series->id . "<br>";
+        echo $series->nome . "<br>";
+        echo $series->genero_id . "<br>";
+        echo $series->sinopse . "<br>";                        
+    }
 });
